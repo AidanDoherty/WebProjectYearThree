@@ -1,0 +1,19 @@
+<div fxLayout="row" class="layout" fxLayoutAlign="space-evenly stretch" fxLayoutGap="20px" *ngIf='bookdata'>
+ <mat-card  style="display: inline-block"fxFlex="0 1 calc(20% - 20px)" *ngFor="let exbook of bookdata.items">
+   
+    <img class="card-img-top" mat-card-md-image width="100px" height="150px" [src]="exbook.volumeInfo.imageLinks.thumbnail" [title]='exbook.volumeInfo.title'>
+
+        <mat-card-title>{{exbook.volumeInfo.title}}</mat-card-title>
+    
+    <mat-card-actions fxLayoutAlign="center end">
+      <button mat-raised-button color="primary" (click)="selectbook(
+      exbook.volumeInfo.title,
+       exbook.volumeInfo.authors,
+       exbook.volumeInfo.publisher,
+       exbook.volumeInfo.description,
+       exbook.volumeInfo.imageLinks.thumbnail)">
+        Use Book</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
